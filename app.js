@@ -24,7 +24,7 @@ app.get('/listusers', function (req, res) {
     var sql = "Select * from users";
     con.query(sql, function (err, result,fields) {
         if (err) throw err;
-
+        res.send(result);
         console.log(result);
 
     });
@@ -37,11 +37,14 @@ app.get('/listusers/:id', function (req, res) {
     con.query(sql, function (err, result,fields) {
         if (err) throw err;
 
-        if(result.length!=0)
-            console.log(result);
-else
-    console.log("not found");
-    });
+        if(result.length!=0){
+            res.send(result);
+
+            console.log(result);}
+else {        res.send("not found");
+
+            console.log("not found");
+        }    });
 })
 app.get ('/adduser', function (req, res) {
     let name = req.query.name;
@@ -52,6 +55,8 @@ app.get ('/adduser', function (req, res) {
     con.query(sql, function (err, result,fields) {
         if (err) throw err;
         console.log("Inserted");
+        res.send("inserted");
+
 
     });
 })
@@ -71,13 +76,18 @@ app.get ('/adduser', function (req, res) {
              con.query(sql1     , function (err, result,fields) {
                  if (err) throw err;
                  console.log("Updated");
+                 res.send("updated");
+
 
              });
 
          }
 
-         else
+         else{
              console.log("not found");
+             res.send("not found");
+
+         }
      });
 
 
@@ -98,13 +108,17 @@ app.get('/deleteuser/:id', function (req, res) {
             con.query(sql1, function (err, result,fields) {
                 if (err) throw err;
                 console.log("Deleted");
+                res.send("Deleted");
+
 
             });
 
         }
 
-        else
-            console.log("not found");
+        else{
+            res.send("not found");
+
+            console.log("not found");}
     });
 
 
