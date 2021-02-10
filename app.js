@@ -1,8 +1,11 @@
 var mysql = require('mysql');
 var express = require('express');
 var app = express();
-
-
+const bodyParser = require("body-parser");
+app.use(bodyParser.urlencoded({
+    extended: true
+}));
+app.use(bodyParser.json());
 var con = mysql.createConnection({
     host: "localhost",
     user: "root",
@@ -20,7 +23,7 @@ var con = mysql.createConnection({
 //         console.log("Inserted");
 //     });
 // });
-app.get('/listusers', function (req, res) {
+app.get('/users/', function (req, res) {
     var sql = "Select * from users";
     con.query(sql, function (err, result,fields) {
         if (err) throw err;
@@ -29,7 +32,7 @@ app.get('/listusers', function (req, res) {
 
     });
 })
-app.get('/listusers/:id', function (req, res) {
+app.get('/users/:id', function (req, res) {
 
     console.log(req.params.id);
     var id=req.params.id;
@@ -46,11 +49,12 @@ else {        res.send("not found");
             console.log("not found");
         }    });
 })
-app.get ('/adduser', function (req, res) {
-    let name = req.query.name;
-    let address = req.query.address;
+app.post ('/users/', function (req, res) {
+
+    let name = req.body.name;
+    let address = req.body.address;
     console.log(name)
-    var sql = "Insert into users (name, address) values ("+name+","+address+")";
+    var sql = "Insert into users (name, address) values ('"+name+"','"+address+"')";
     //var values=[name.toString(),address.toString()];
     con.query(sql, function (err, result,fields) {
         if (err) throw err;
@@ -60,10 +64,11 @@ app.get ('/adduser', function (req, res) {
 
     });
 })
- app.get('/updateuser/:id', function (req, res) {
+ app.put('/users/:id', function (req, res) {
    var id=req.params.id;
-    let name = req.query.name;
-    let address = req.query.address;
+
+     let name = req.body.name;
+     let address = req.body.address
      var sql = "Select * from users u where u.id="+id;
      con.query(sql, function (err, result,fields) {
          if (err) throw err;
@@ -94,7 +99,7 @@ app.get ('/adduser', function (req, res) {
 
 })
 
-app.get('/deleteuser/:id', function (req, res) {
+app.delete('/users/:id', function (req, res) {
     var id=req.params.id;
     var sql = "Select * from users u where u.id="+id;
     con.query(sql, function (err, result,fields) {
@@ -123,6 +128,7 @@ app.get('/deleteuser/:id', function (req, res) {
 
 
 })
+
 
 var server = app.listen(8081, function () {
     var host = server.address().address
