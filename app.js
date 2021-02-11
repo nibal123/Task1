@@ -1,11 +1,14 @@
 var mysql = require('mysql');
 var express = require('express');
+
 var app = express();
 const bodyParser = require("body-parser");
 app.use(bodyParser.urlencoded({
     extended: true
 }));
 app.use(bodyParser.json());
+var path = require('path');
+
 var con = mysql.createConnection({
     host: "localhost",
     user: "root",
@@ -129,6 +132,10 @@ app.delete('/users/:id', function (req, res) {
 
 })
 
+app.use(express.static('public'));
+app.get('/', function(request, response){
+    response.sendFile(path.join(__dirname + '/index.html'));
+});
 
 var server = app.listen(8081, function () {
     var host = server.address().address

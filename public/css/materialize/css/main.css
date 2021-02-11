@@ -1,0 +1,24 @@
+.home{
+
+        /*display: flex;*/
+        /*flex-wrap: wrap;*/
+        /*align-content: center;*/
+        justify-content: space-around;
+
+}
+body{
+
+    justify-content: center;
+    align-content: center;
+    min-width: auto;
+}
+
+
+.col{
+    min-width: auto;
+    margin: 5%;
+
+}
+.fixed-action-btn{
+    width: 10%;
+}
