@@ -15,6 +15,17 @@ $(document).ready(function(){
 
   <!-- Dropdown Structure -->
   <ul id='dropdown1${u.id}' class='dropdown-content'>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
      <li
     id=${u.id}  class="btn-floating btn-large red"> <i class="large material-icons">delete</i>  </li>
      <li
