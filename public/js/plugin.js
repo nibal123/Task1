@@ -18,6 +18,29 @@ $(document).ready(function(){
      <li
     id=${u.id}  class="btn-floating btn-large red"> <i class="large material-icons">delete</i>  </li>
      <li
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
     id=${u.id}  class="btn-floating btn-large red"> <i class="large material-icons">edit</i>  </li>
     
       
