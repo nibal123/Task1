@@ -1,8 +1,8 @@
-`<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Task1</title>
     <link rel="stylesheet" href="/css/materialize/css/materialize.css">
     <link rel="stylesheet" href="/css/materialize/css/main.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -19,37 +19,14 @@
 </head>
 <body>
 <div class="home">
-
-
-<!--    <div class="row card grey">-->
-<!--                <div class="   white-text">-->
-<!--                    <div class="col s4 ">-->
-<!--                    <p>name</p>-->
-<!--                </div>    <div class="col s4">-->
-<!--                    <a class="waves-effect waves-light btn">button</a>-->
-<!--                </div>-->
-<!--                    <div class="col s4">-->
-<!--                        <a class="waves-effect waves-light btn">button</a>-->
-<!--                    </div>-->
-
-<!--        </div>-->
-
-<!--    </div>-->
-
-<!--    <ul class="collection with-header">-->
-<!--        <li class="collection-header row"><h4 class="col s5">Users</h4> <div class="col s3"></div><a class=" col s2 waves-effect waves-light btn">Add User</a></li>-->
-<!--        <li class=" row"><h4 class="col s2      ">ID</h4><h4 class="col s3">Name</h4><h4 class="col s3">Address</h4></li>-->
-<!--        <li class="collection-item row"><div class="col s1">1</div><div class="col s3">ffff</div><div class="col s3">ggg</div><a class=" col s2 waves-effect waves-light btn">Delete</a></li>-->
-
-<!--    </ul>-->
-
     <table class="striped" id="users">
         <thead>
         <tr>
             <th>ID</th>
             <th>Name</th>
             <th>Address</th>
-            <th></th>
+            <th><button data-target="modal1" class="btn modal-trigger">ADD USER</button>
+            </th>
 
         </tr>
         </thead>
@@ -58,10 +35,75 @@
 
 
         </tbody>
-    </table>
 
+
+    </table>
+    <!-- Modal Trigger -->
+
+    <!-- Modal Structure -->
+    <div id="modal1" class="modal">
+        <div class="modal-content">
+            <h4>New User</h4>
+            <div class="row">
+                <form class="col s12">
+                <div class="input-field col s5">
+                    <input  id="first_name2" type="text" class="validate">
+                    <label class="active" for="first_name2">First Name</label>
+                </div>
+                <div class="input-field col s5">
+                    <input  id="last_name2" type="text" class=" validate">
+                    <label class="active" for="last_name2">Last Name</label>
+                </div>
+                    <div class="row">
+                        <div class="input-field col s10">
+                            <input  id="address" type="text" class="validate">
+                            <label for="address">Address</label>
+                        </div>
+
+                    </div>
+                </form>
+            </div>
+
+                   </div>
+        <div class="modal-footer">
+            <a href="#!" id="save" class="modal-close waves-effect waves-green btn-flat">save</a>
+            <a href="#!" id="cancel" class="modal-close waves-effect waves-green btn-flat">Cancel</a>
+        </div>
+    </div>
 </div>
 
+
+
+<div id="modal2" class="modal">
+    <div class="modal-content">
+        <h4>Edit User</h4>
+        <div class="row">
+            <form class="col s12">
+                <div class="input-field col s5">
+                    <input  placeholder="" id="first_name1" type="text" class="validate">
+                    <label class="active" for="first_name1">First Name</label>
+                </div>
+                <div class="input-field col s5">
+                    <input placeholder="" id="last_name1" type="text" class=" validate">
+                    <label class="active" for="last_name1">Last Name</label>
+                </div>
+                <div class="row">
+                    <div class="input-field col s10">
+                        <input placeholder="" id="address1" type="text" class="validate">
+                        <label for="address1">Address</label>
+                    </div>
+
+                </div>
+            </form>
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <a href="#!" id="save1" class="modal-close waves-effect waves-green btn-flat">save</a>
+        <a href="#!" id="cancel1" class="modal-close waves-effect waves-green btn-flat">Cancel</a>
+    </div>
+</div>
+</div>
 
     <!--    <div class="row">-->
     <!--        <div class="col s12"><a class="waves-effect waves-light btn">button</a></div>-->
@@ -77,4 +119,4 @@
 
 
 </body>
-</html>`
+</html>

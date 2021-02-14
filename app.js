@@ -9,6 +9,14 @@ app.use(bodyParser.urlencoded({
 app.use(bodyParser.json());
 var path = require('path');
 
+// TODO
+// 1- Database.js
+// 2- .env host,user,password
+// 3- controller , route
+// UserRepository
+
+
+
 var con = mysql.createConnection({
     host: "localhost",
     user: "root",
@@ -16,17 +24,9 @@ var con = mysql.createConnection({
     database:"task1",
 
 });
-// con.connect(function(err) {
-//     if (err) throw err;
-//     console.log("Connected!");
-//
-//     var sql = "INSERT INTO users (name, address) VALUES ('nibal', 'aaaa')";
-//     con.query(sql, function (err, result) {
-//         if (err) throw err;
-//         console.log("Inserted");
-//     });
-// });
+
 app.get('/users/', function (req, res) {
+    // service.findAll();
     var sql = "Select * from users";
     con.query(sql, function (err, result,fields) {
         if (err) throw err;
@@ -54,15 +54,20 @@ else {        res.send("not found");
 })
 app.post ('/users/', function (req, res) {
 
-    let name = req.body.name;
-    let address = req.body.address;
+    let name = req.body.name.toString();
+    let address = req.body.address.toString();
     console.log(name)
     var sql = "Insert into users (name, address) values ('"+name+"','"+address+"')";
     //var values=[name.toString(),address.toString()];
     con.query(sql, function (err, result,fields) {
         if (err) throw err;
         console.log("Inserted");
-        res.send("inserted");
+        // console.log(result. insertId);
+        //
+        // res.send("inserted");
+        res.send(result.insertId+" ")
+        res.end()
+
 
 
     });
